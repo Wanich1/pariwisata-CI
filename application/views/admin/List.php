@@ -20,31 +20,23 @@
 			</tr>
 			</thead>
 			<tbody>
-			<!-- <?php
-
-			$query = mysqli_query($koneksi, "SELECT `konten`.*, `kategori`.`nama`
-			FROM `konten` 
-				LEFT JOIN `kategori` ON `konten`.`id_kategori` = `kategori`.`id_kategori`;");
-
-			while($data = mysqli_fetch_array($query)){
-				echo "<tr>";
-				echo "<td>".$data['judul']."</td>";
-				echo "<td>".$data['nama']."</td>";
-				echo "<td>".$data['isi_konten']."</td>";
-				echo "<td>".$data['tanggal']."</td>";
-				echo "
-					<td class='py-0 align-middle'>
+			<?php $no=1; ?>
+			<?php foreach($konten as $kntn) : ?>
+			<tr>
+				<?php $no++; ?>
+				<td><?php echo $kntn['judul'] ?></td>
+				<td><?php echo $kntn['id_kategori'] ?></td>
+				<td><?php echo $kntn['isi_konten'] ?></td>
+				<td><?php echo $kntn['tanggal'] ?></td>
+				<td class='py-0 align-middle'>
 					<div class='btn-group btn-group-sm'>
-						<a href='update.php?id_konten=".$data['id_konten']."' class='btn btn-warning'><i class='fa fa-edit'></i></a>
-						<a href='' target='_blank' class='btn btn-info'><i class='fa fa-eye'></i></a>
-						<a href='hapus.php?id=".$data['id_konten']."' class='btn btn-danger'><i class='fa fa-trash'></i></a>
+						<a href='' class='btn btn-warning'><i class='fa fa-edit'></i></a>
+						<a href=''  class='btn btn-info'><i class='fa fa-eye'></i></a>
+						<a href='' class='btn btn-danger'><i class='fa fa-trash'></i></a>
 					</div>
-				</td>";
-				echo "</tr>";
-			}
-
-			?> -->
-			
+				</td>
+			</tr>
+			<?php endforeach; ?>			
 			</tbody>
 		</table>
 		</div>
