@@ -52,19 +52,25 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form method="POST" action="<?php echo base_url('auth/daftar') ?>" enctype="multipart/form-data">
               <h1>Create Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="username1" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" name="nama" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="text" name="contact" class="form-control" placeholder="Contact" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <input type="email" name="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" name="password1" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-default submit" name="masuk">Submit</button> 
               </div>
 
               <div class="clearfix"></div>

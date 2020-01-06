@@ -49,9 +49,37 @@ class Auth extends CI_Controller {
 			}else
 			{
 				$this->session->set_userdata('nama',$auth->nama);
+				$this->session->set_userdata('id_user',$auth->id_user);
 				$this->session->set_userdata('username',$auth->username);
 				redirect('dashboard');
 			}
 		}
+	}
+	public function daftar()
+	{
+		
+
+		// if($this->form_validation->run() == FALSE)
+		// {
+		// 	$this->daftar();
+		// }
+		// else{
+			$username			= $this->input->post('username1');
+			$nama				= $this->input->post('nama');
+			$contact 			= $this->input->post('contact');
+			$email 				= $this->input->post('email');
+			$password			= $this->input->post('password1');
+
+			$data = array(
+				'username'		=> $username,
+				'nama'			=> $nama,
+				'contact'		=> $contact,
+				'email'			=> $email,
+				'password'		=> $password
+			);
+			$this->model_auth->insert_data($data,'user');
+			$this->session->set_flashdata('pesan','Data Berhasil Ditambahkan');
+			redirect('auth/login');
+		// }
 	}
 }
