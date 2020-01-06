@@ -34,9 +34,11 @@ class Dashboard extends CI_Controller {
 	}
 	public function tambah()
 	{
+		$this->load->model('model_konten');
+		$data_konten['konten']= $this->model_konten->get_data();
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar');
-		$this->load->view('admin/tambah');
+		$this->load->view('admin/tambah',$data_konten);
 		$this->load->view('admin/template/footer');
 	}
 	public function list()
