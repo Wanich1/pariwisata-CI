@@ -12,6 +12,27 @@ class Model_konten extends CI_Model {
 		$query=$this->db->get();
 		return $query->result_array();
 	}
+	public function get_event()
+	{
+		// return $this->db->get('konten')->result_array();
+		$this->db->select('konten.*,kategori.id_kategori AS id_kategori,kategori.nama');
+		$this->db->join('kategori','konten.id_kategori = kategori.id_kategori');
+		$this->db->from('konten');
+		$this->db->where('konten.id_kategori',2);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+
+	public function get_destinasi()
+	{
+		// return $this->db->get('konten')->result_array();
+		$this->db->select('konten.*,kategori.id_kategori AS id_kategori,kategori.nama');
+		$this->db->join('kategori','konten.id_kategori = kategori.id_kategori');
+		$this->db->from('konten');
+		$this->db->where('konten.id_kategori',1);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
 	// public function input_data($data,$table)
 	// {
 	// 	$this->db->insert($table,$data);
