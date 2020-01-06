@@ -9,6 +9,7 @@
 		<p class="text-muted font-13 m-b-30">
 			DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
 		</p>
+		
 		<table id="datatable" class="table table-striped table-bordered" style="width:100%">
 			<thead>
 			<tr>
@@ -16,7 +17,7 @@
 				<th>Kategori</th>
 				<th>Artikel</th>
 				<th>Tanggal</th>
-				<th>Aksi</th>
+				<th>Aksi </th>
 			</tr>
 			</thead>
 			<tbody>
@@ -25,16 +26,18 @@
 			<tr>
 				<?php $no++; ?>
 				<td><?php echo $kntn['judul'] ?></td>
-				<td><?php echo $kntn['id_kategori'] ?></td>
+				<td><?php echo $kntn['nama'] ?></td>
 				<td><?php echo $kntn['isi_konten'] ?></td>
 				<td><?php echo $kntn['tanggal'] ?></td>
 				<td class='py-0 align-middle'>
 					<div class='btn-group btn-group-sm'>
-						<a href='' class='btn btn-warning'><i class='fa fa-edit'></i></a>
-						<a href=''  class='btn btn-info'><i class='fa fa-eye'></i></a>
-						<a href='' class='btn btn-danger'><i class='fa fa-trash'></i></a>
+						<?php echo anchor('dashboard/edit/'.$kntn['id_konten'],'<div class="btn btn-warning"><i class="fa fa-edit"></i></div>') ?>
+						 <!-- <a href='' class='btn btn-warning'><i class='fa fa-edit'></i></a> -->
+						
+						<!-- <a href='' class='btn btn-danger'><i class='fa fa-trash'></i></a> -->
 					</div>
 				</td>
+				<td onclick="javascript: return confirm('Yakin Ingin Menghapus ?')"><?php echo anchor('dashboard/hapus/'.$kntn['id_konten'],'<div class="btn btn-danger"><i class="fa fa-trash"></i></div>') ?></td>
 			</tr>
 			<?php endforeach; ?>			
 			</tbody>
