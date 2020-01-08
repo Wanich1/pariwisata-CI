@@ -88,12 +88,26 @@ class Dashboard extends CI_Controller {
 			$kategori 			= $this->input->post('kategori');
 			$isi 				= $this->input->post('isi');
 			$id_user			= $this->session->userdata('id_user');
+			$foto				= $_FILES['foto'];
+			if($foto=''){}else{
+				$config['upload_path']			= './assets/img/thumb';
+				$config['allowed_types']		= 'jpg|png|gif';
+
+				$this->load->library('upload',$config);
+				if(!$this->upload->do_upload('foto')){
+					echo $this->upload->display_errors();die();
+				}
+				else{
+					$foto=$this->upload->data('file_name');
+				}
+			}
 
 			$data = array(
 				'judul'				=> $judul,
 				'id_kategori'		=> $kategori,
 				'id_user'			=> $id_user,
-				'isi_konten'		=> $isi
+				'isi_konten'		=> $isi,
+				'foto'				=> $foto
 			);
 			$this->model_konten->insert_data($data,'konten');
 			$this->session->set_flashdata('pesan','Data Berhasil Ditambahkan');
@@ -115,7 +129,20 @@ class Dashboard extends CI_Controller {
 			$kategori 			= $this->input->post('kategori');
 			$isi 				= $this->input->post('isi');
 			$id_user			= $this->session->userdata('id_user');
+			$foto				= $_FILES['foto'];
+			if($foto){
+				$config['upload_path']			= './assets/img/thumb';
+				$config['allowed_types']		= 'jpg|png|gif';
 
+				$this->load->library('upload',$config);
+				if($this->upload->do_upload('foto'))
+				{
+					$foto=$this->upload->data('file_name');
+					$this->db->set('foto', $foto);
+				}else{
+					echo $this->upload->display_errors();
+				}
+			}
 			$data = array(
 				'id_konten'				=> $id,
 				'judul'				=> $judul,
