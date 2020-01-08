@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/banner/style_banner.css">
-<link rel="text/javascript" href="assets/banner/slider.js">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/banner/style_banner.css">
+<link rel="text/javascript" href="<?php echo base_url();?>assets/banner/slider.js">
 </head>
 <body>
 
@@ -11,19 +11,19 @@
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
-            <img src="assets/img/img1.jpg" style="width:100%">
+            <img src="<?php echo base_url();?>assets/img/img1.jpg" style="width:100%">
             <div class="text">Caption Text</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <img src="assets/img/img2.jpg" style="width:100%">
+            <img src="<?php echo base_url();?>assets/img/img2.jpg" style="width:100%">
             <div class="text">Caption Two</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
-            <img src="assets/img/img3.jpg" style="width:100%">
+            <img src="<?php echo base_url();?>assets/img/img3.jpg" style="width:100%">
             <div class="text">Caption Three</div>
         </div>
 

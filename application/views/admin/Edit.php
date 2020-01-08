@@ -11,7 +11,7 @@
 
 				<div class="x_content">
 				<br />
-				<form method="POST" action="<?php echo base_url('dashboard/edit_konten_aksi') ?>" enctype="multipart/form-data">
+				<?php echo form_open_multipart('dashboard/tambah_konten_aksi'); ?>
 
 					<div class="form-group row ">
 					<label class="control-label col-md-3 col-sm-3 ">Title</label>
@@ -40,6 +40,12 @@
 									<?php echo form_error('kategori','<div class="text-small text-danger">','</div>') ?>
 					</div>
 					</div>
+					<div class="form-group row ">
+					<label class="control-label col-md-3 col-sm-3 ">Upload Thumbnail</label>
+					<div class="col-md-9 col-sm-9 ">
+						<input type="file" name="foto" class="form-control">
+					</div>
+					</div>
 					<div class="mb-3">
 
 								<textarea name="isi" id="isi" required>
@@ -63,7 +69,7 @@
 					</div>
 					
 
-				</form>
+				<?php echo form_close(); ?>
 				</div>
 			</div>
 	</div>
